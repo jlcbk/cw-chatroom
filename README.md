@@ -1,54 +1,52 @@
+# CW (摩尔斯电码) 实时聊天室
 
-# CW (Morse Code) Real-time Chatroom
+本项目是一个极简的、实时的、基于Web的聊天室，它使用连续波 (CW) 音调来模拟摩尔斯电码的通信环境。
 
-This project is a minimalist, real-time, web-based chatroom that uses continuous wave (CW) tones, simulating a Morse Code communication environment.
+## 功能特性
 
-## Features
+- **实时广播:** 当一个用户按下按钮时，生成的音调会实时广播给所有其他连接的客户端。
+- **立体空间音频:** 该应用实现了一个独特的空间音频功能。每个用户都会被分配一个随机且唯一的音调频率。这个频率决定了声音的感知立体声位置（声像），从而让监听者可以通过音高和空间位置来区分不同的操作员。
+- **简洁界面:** 整个用户界面只有一个按钮。按住发送，松开停止。
+- **跨平台:** 可在桌面端（使用鼠标）和移动端（使用触摸屏）上运行。
+- **基于Web技术构建:** 使用 Node.js、WebSockets 进行实时通信，并利用 Web Audio API 进行动态音调生成和立体声声像控制。
 
-- **Real-time Broadcasting:** When a user presses the button, the generated tone is broadcast to all other connected clients in real-time.
-- **Stereo Spatial Audio:** The application features a unique spatial audio implementation. Each user is assigned a random, unique frequency for their tone. This frequency determines the perceived stereo position (panning) of the sound, allowing listeners to distinguish different operators by both pitch and spatial location.
-- **Simple Interface:** A single button is the entire user interface. Press and hold to transmit, release to stop.
-- **Cross-platform:** Works on both desktop (with a mouse) and mobile (with a touchscreen).
-- **Built with Web Technologies:** Utilizes Node.js, WebSockets for real-time communication, and the Web Audio API for dynamic tone generation and stereo panning.
+## 部署
 
-## Deployment
+请按照以下步骤在您自己的服务器上部署并运行本应用。
 
-Follow these steps to deploy and run the application on your own server.
+### 先决条件
 
-### Prerequisites
+- 您的系统上必须安装 [Node.js](https://nodejs.org/) (其中包含 npm)。
 
-- [Node.js](https://nodejs.org/) (which includes npm) must be installed on your system.
+### 步骤
 
-### Steps
-
-1.  **Clone the repository:**
+1.  **克隆仓库:**
     ```bash
     git clone https://github.com/jlcbk/cw-chatroom.git
     ```
 
-2.  **Navigate to the project directory:**
+2.  **进入项目目录:**
     ```bash
     cd cw-chatroom
     ```
 
-3.  **Install dependencies:**
+3.  **安装依赖:**
     ```bash
     npm install
     ```
 
-4.  **Start the server:**
+4.  **启动服务器:**
     ```bash
     node server.js
     ```
-    The server will start, and you will see a confirmation message, e.g., `Server is listening on port 3001`.
+    服务器将会启动，您会看到一条确认信息，例如 `Server is listening on port 3001`。
 
-5.  **Firewall Configuration:**
-    Ensure that the port the server is running on (default is **3001**) is open in your server's firewall. For example, on Ubuntu with `ufw`:
+5.  **防火墙配置:**
+    请确保服务器运行的端口（默认为 **3001**）已在您服务器的防火墙中打开。例如，在 Ubuntu 系统上使用 `ufw`：
     ```bash
     sudo ufw allow 3001/tcp
     ```
 
-6.  **Access the Application:**
-    Open your web browser and navigate to `http://<your_server_ip>:3001`.
-    To test the real-time functionality, open multiple browser tabs or use different devices to connect to the same address.
-
+6.  **访问应用:**
+    打开您的网页浏览器并访问 `http://<your_server_ip>:3001`。
+    要测试实时功能，可以打开多个浏览器标签页或使用不同设备连接到同一地址。
